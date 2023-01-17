@@ -1,0 +1,5 @@
+name: mooc-weatherbench
+dependencies:
+  - numpy
+  - xarray
+  - tensorflow
