@@ -49,6 +49,20 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
+      - name: Tokens
+        shell: python
+        env:
+          CDSAPIRC: ${{ secrets.CDSAPIRC }}
+
+        run: |
+          import os
+          for n in ('CDSAPIRC',):
+              m = os.path.expanduser("~/." + n.lower())
+              if os.environ[n]:
+                  with open(m, "w") as f:
+                      print(os.environ[n], file=f)
+
+
       - name: Install test tools
         run: |
           pip install pytest nbformat nbconvert ipykernel
@@ -56,4 +70,4 @@ jobs:
 
       - name: Test notebooks
         run: |
-          pytest tests/test_notebooks.py
+          pytest -vv tests/test_notebooks.py
