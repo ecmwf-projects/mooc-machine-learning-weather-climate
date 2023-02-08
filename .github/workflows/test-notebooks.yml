@@ -62,6 +62,10 @@ jobs:
                   with open(m, "w") as f:
                       print(os.environ[n], file=f)
 
+      - name: Install requirements
+        run: |
+          pip install climetlab h5py
+          pip freeze
 
       - name: Install test tools
         run: |
