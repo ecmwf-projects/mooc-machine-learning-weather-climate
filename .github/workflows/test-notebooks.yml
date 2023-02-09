@@ -64,6 +64,7 @@ jobs:
 
       - name: Install requirements
         run: |
+          pip install tensorflow
           pip install climetlab h5py
           pip freeze
 
