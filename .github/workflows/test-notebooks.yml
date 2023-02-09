@@ -65,7 +65,9 @@ jobs:
       - name: Install requirements
         run: |
           pip install tensorflow
-          pip install climetlab h5py
+          pip install scikit-learn, scipy
+          pip install h5py
+          pip install climetlab
           pip freeze
 
       - name: Install test tools
