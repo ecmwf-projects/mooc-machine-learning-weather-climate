@@ -79,5 +79,5 @@ jobs:
           pwd
 
       - name: Test notebooks
-        working-directory: ./mooc-machine-learning-weather-climate/${{ matrix.module }}
+        working-directory: ${{ matrix.module }}
         run:  pytest -vv ../../tests/test_notebooks.py ${{ matrix.module }}
