@@ -77,6 +77,6 @@ jobs:
           pip install pytest nbformat nbconvert ipykernel
           pip freeze
 
-      - name: Test notebooks for ${{ module }}
+      - name: Test notebooks for ${{ matrix.module }}
         run: |
-          cd  ${{ module }} && pytest -vv tests/test_notebooks.py ${{ module }}
+          cd  ${{ matrix.module }} && pytest -vv tests/test_notebooks.py ${{ matrix.module }}
