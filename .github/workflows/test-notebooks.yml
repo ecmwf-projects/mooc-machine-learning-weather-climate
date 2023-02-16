@@ -53,6 +53,7 @@ jobs:
       - name: Tokens
         shell: python
         env:
+          ECMWFAPIRC: ${{ secrets.ECMWFAPIRC }}
           CDSAPIRC: ${{ secrets.CDSAPIRC }}
 
         run: |
