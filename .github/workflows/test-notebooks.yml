@@ -57,7 +57,7 @@ jobs:
 
         run: |
           import os
-          for n in ('CDSAPIRC',):
+          for n in ('ECMWFAPIRC', 'CDSAPIRC'):
               m = os.path.expanduser("~/." + n.lower())
               if os.environ[n]:
                   with open(m, "w") as f:
