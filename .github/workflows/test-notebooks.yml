@@ -40,7 +40,7 @@ jobs:
         python-version: ["3.9"]
         module: [ "tier_2/data_handling", "tier_2/deep_learning", "tier_2/physic_informed", "tier_2/regression_decision_trees", "tier_2/uncertainty", "tier_3/data_assimilation", "tier_3/forecast_model", "tier_3/observations", "tier_3/ocean_climate", "tier_3/operational_meteorology", "tier_3/post_processing" ]
 
-    name: Python ${{ matrix.python-version }} on ${{ matrix.platform }}
+    name: Test notebooks for ${{ matrix.module }}
     runs-on: ${{ matrix.platform }}
 
     steps:
@@ -77,6 +77,6 @@ jobs:
           pip install pytest nbformat nbconvert ipykernel
           pip freeze
 
-      - name: Test notebooks for ${{ matrix.module }}
+      - name: Test notebooks
         run: |
-          cd  ${{ matrix.module }} && pytest -vv tests/test_notebooks.py ${{ matrix.module }}
+          cd  ${{ matrix.module }} && pytest -vv ../../tests/test_notebooks.py ${{ matrix.module }}
