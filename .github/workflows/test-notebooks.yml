@@ -72,6 +72,7 @@ jobs:
           pip install h5py
           pip install matplotlib pandas numpy netCDF4
           pip install climetlab
+          pip install -e tier_2/data_handling/climetlab-my-plugin-solution
           pip freeze
 
       - name: Install test tools
