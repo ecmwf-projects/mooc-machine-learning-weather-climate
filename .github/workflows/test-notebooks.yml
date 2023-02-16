@@ -76,7 +76,8 @@ jobs:
         run: |
           pip install pytest nbformat nbconvert ipykernel
           pip freeze
+          pwd
 
       - name: Test notebooks
-        working-directory: ./${{ matrix.module }}
+        working-directory: ./mooc-machine-learning-weather-climate/${{ matrix.module }}
         run:  pytest -vv ../../tests/test_notebooks.py ${{ matrix.module }}
