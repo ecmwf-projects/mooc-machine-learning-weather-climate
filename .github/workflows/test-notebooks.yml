@@ -66,6 +66,7 @@ jobs:
       - name: Install requirements
         run: |
           pip install tensorflow
+          pip install tensorflow-probability
           pip install scikit-learn scipy
           pip install h5py
           pip install matplotlib pandas numpy netCDF4
