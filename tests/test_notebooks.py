@@ -23,10 +23,8 @@ except ImportError:
 
 
 def notebooks_list():
-    here = os.path.dirname(__file__)
-
     notebooks = []
-    for path in glob.glob(here + '/../*/*/*.ipynb'):
+    for path in glob.glob('*.ipynb'):
         # ignore notebooks starting with '_'
         if re.match(r"[^_].*\.ipynb$", path):
             if "Copy" not in path:  # ignore notebook including 'Copy'
