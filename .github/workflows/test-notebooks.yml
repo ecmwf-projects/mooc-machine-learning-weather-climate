@@ -80,4 +80,4 @@ jobs:
 
       - name: Test notebooks
         working-directory: ${{ matrix.module }}
-        run:  pytest -vv ../../tests/test_notebooks.py ${{ matrix.module }}
+        run:  pytest -vv ../../tests/test_notebooks.py
