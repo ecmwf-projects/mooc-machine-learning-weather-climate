@@ -37,6 +37,30 @@ class MyExecutePreprocessor(ExecutePreprocessor):
         print(cell)
         if cell['source'] == 'gan.fit(dataset, epochs=30)':
             cell['source'] = 'gan.fit(dataset, epochs=1)'
+
+        flag = '# For github action'
+        source = cell.get('source', '')
+        if flag.lower() in source.lower():
+            # Tweak cells that are too long to run on Github actions
+            # because there are no GPUs.
+            # Ignore what is before the flag, replace it with is after the flag
+            # |  
+            # |  model.fit(dataset, epochs=50)
+            # |  # For Github actions:
+            # |  # model.fit(dataset, epochs=1)
+            # |  
+            def replacement(source, flag):
+                lst = []
+                after_flag = False
+                for line in source.split('\n'):
+                    if flag in line:
+                        after_flag = True
+                        continue
+                    if after_flag:
+                        lst.append(line)
+                return "\n".join(lst)
+            cell['source'] = replacement(cell['source'])
+
         return super().preprocess_cell(cell, resources, index)
 
 @pytest.mark.parametrize("path", notebooks_list())
