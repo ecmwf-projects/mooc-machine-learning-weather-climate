@@ -38,6 +38,17 @@ class MyExecutePreprocessor(ExecutePreprocessor):
         if cell['source'] == 'gan.fit(dataset, epochs=30)':
             cell['source'] = 'gan.fit(dataset, epochs=1)'
 
+        def replacement(source, flag):
+            lst = []
+            after_flag = False
+            for line in source.split('\n'):
+                if flag in line:
+                    after_flag = True
+                    continue
+                if after_flag:
+                    lst.append(line)
+            return "\n".join(lst)
+
         flag = '# For github action'
         source = cell.get('source', '')
         if flag.lower() in source.lower():
@@ -49,17 +60,7 @@ class MyExecutePreprocessor(ExecutePreprocessor):
             # |  # For Github actions:
             # |  # model.fit(dataset, epochs=1)
             # |  
-            def replacement(source, flag):
-                lst = []
-                after_flag = False
-                for line in source.split('\n'):
-                    if flag in line:
-                        after_flag = True
-                        continue
-                    if after_flag:
-                        lst.append(line)
-                return "\n".join(lst)
-            cell['source'] = replacement(cell['source'])
+            cell['source'] = replacement(cell['source'], flag)
 
         return super().preprocess_cell(cell, resources, index)
 
