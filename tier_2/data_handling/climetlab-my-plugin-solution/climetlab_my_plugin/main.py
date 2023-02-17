@@ -32,6 +32,6 @@ class Main(Dataset):
 
     dataset = None
 
-    # @normalize("parameter", ['soil_temperature', 'forecast_error'])
+    @normalize("parameter", ["soil_temperature", "forecast_error"])
     def __init__(self, parameter):
         self.source = cml.load_source("file", parameter + ".csv")
