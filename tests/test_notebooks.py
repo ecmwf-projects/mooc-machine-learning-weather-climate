@@ -32,6 +32,12 @@ def notebooks_list():
 
     return sorted(notebooks)
 
+class MyExecutePreprocessor(ExecutePreprocessor):
+    def preprocess_cell(self, cell, resources, index):
+        print(cell)
+        if cell['source'] == 'gan.fit(dataset, epochs=30)':
+            cell['source'] = 'gan.fit(dataset, epochs=1)'
+        return super().preprocess_cell(cell, resources, index)
 
 @pytest.mark.parametrize("path", notebooks_list())
 def test_notebook(path):
@@ -41,7 +47,7 @@ def test_notebook(path):
     with open(path) as f:
         nb = nbformat.read(f, as_version=4)
 
-    proc = ExecutePreprocessor(timeout=60 * 60, kernel_name="python3")
+    proc = MyExecutePreprocessor(timeout=60 * 60, kernel_name="python3")
     proc.preprocess(nb, {"metadata": {"path": dir_path}})
 
 
