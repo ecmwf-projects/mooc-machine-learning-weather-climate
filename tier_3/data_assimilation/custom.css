@@ -1,0 +1,20 @@
+.container{
+    width:80% !important;
+}
+div#notebook p, div#notebook{
+    font-size: 115%;
+    line-height: 135%;
+}
+.rendered_html pre, .rendered_html table{
+    font-size:115%;
+    line-height: 135%;
+}
+.CodeMirror, .CodeMirror pre, .CodeMirror-dialog, .CodeMirror-dialog .CodeMirror-search-field, .terminal-app .terminal {
+    font-size: 100%;
+    line-height: 125%;
+}
+
+img[alt="schematic"] { 
+        width:  1000px; 
+        display: block;
+      }

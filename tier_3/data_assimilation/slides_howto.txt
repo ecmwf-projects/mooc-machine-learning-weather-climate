@@ -1,0 +1,4 @@
+Slide show of the introduction:
+> jupyter nbconvert mooc_ecmwf_bocquet_brajard_intro.ipynb --to slides --post serve
+But better use the rise slideshow button from jupyter (once rise addon is installed), which makes use of 
+the custom rise.css, and seems less buggy than jupyter nbconvert.
