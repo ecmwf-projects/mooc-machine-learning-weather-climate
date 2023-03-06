@@ -26,8 +26,9 @@ def notebooks_list():
     notebooks = []
     for path in glob.glob('*.ipynb'):
         # ignore notebooks starting with '_'
-        if re.match("\[Exercise\] Using_a_BNN_for_probabilistic_ocean_regime_predictions\.ipynb"
-        if re.match(r"[^_].*\.ipynb$", path):
+        if re.match("\[Exercise\] Using_a_BNN_for_probabilistic_ocean_regime_predictions\.ipynb", path):
+          continue  
+        elif re.match(r"[^_].*\.ipynb$", path):
             if "Copy" not in path:  # ignore notebook including 'Copy'
                 notebooks.append(path)
 
