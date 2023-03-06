@@ -1,0 +1,53 @@
+/*********************************************
+ * Set ROOT Information
+ *********************************************/
+
+/* set UU primary color pallet*/
+:root {
+  --color-1: #FFCD00 ;
+  --color-2: #000000 ;
+  --color-3: #C00A35 ;
+  --color-4: #000000 ;
+}
+
+/*********************************************
+ * Set FONT Information
+ *********************************************/
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:italic&amp;lang=en');
+
+body.rise-enabled div.inner_cell>div.text_cell_render.rendered_html,
+.reveal body{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 70%;
+  width: 70%;
+}
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls div.navigate-left, .reveal .controls div.navigate-left.enabled {
+  border-right-color: var(--color-2); }
+
+.reveal .controls div.navigate-right, .reveal .controls div.navigate-right.enabled {
+  border-left-color: var(--color-2); }
+
+.reveal .controls div.navigate-up, .reveal .controls div.navigate-up.enabled {
+  border-bottom-color: var(--color-2); }
+
+.reveal .controls div.navigate-down, .reveal .controls div.navigate-down.enabled {
+    border-top-color: var(--color-2); }
+
+.reveal .controls div.navigate-left.enabled:hover {
+  border-right-color: var(--color-1); }
+
+.reveal .controls div.navigate-right.enabled:hover {
+  border-left-color: var(--color-1); }
+
+.reveal .controls div.navigate-up.enabled:hover {
+  border-bottom-color: var(--color-1); }
+
+.reveal .controls div.navigate-down.enabled:hover {
+  border-top-color: var(--color-1); }
