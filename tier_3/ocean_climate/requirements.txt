@@ -1,0 +1,10 @@
+numpy==1.20.2
+pandas==1.2.4
+geopandas==0.10.2
+tslearn==0.5.2
+tqdm==4.60.0
+sklearn==0.0.post1
+matplotlib==3.4.1
+openpyxl==3.0.10
+folium==0.12.1.post1
+mapclassify==2.4.3
