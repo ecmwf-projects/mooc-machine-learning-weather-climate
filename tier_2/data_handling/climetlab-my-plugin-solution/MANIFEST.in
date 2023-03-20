@@ -1,0 +1,16 @@
+include README.*
+include AUTHORS.*
+include CONTRIBUTORS.*
+include LICENCE
+include LICENSE
+include setup.py
+include tox.ini
+include requirements.txt
+
+recursive-include climetlab_my_plugin *
+recursive-include tests *
+recursive-include docs *.rst conf.py makefile Makefile make.bat *.jpg *.png *.gif
+
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+
