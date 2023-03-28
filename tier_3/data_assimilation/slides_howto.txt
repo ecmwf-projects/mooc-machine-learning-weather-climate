@@ -1,4 +1,33 @@
-Slide show of the introduction:
+Live slide show of the introduction:
+------------------------------------
+
 > jupyter nbconvert mooc_ecmwf_bocquet_brajard_intro.ipynb --to slides --post serve
-But better use the rise slideshow button from jupyter (once rise addon is installed), which makes use of 
+
+> But better use the rise slideshow button from jupyter (once rise addon is installed), which makes use of 
 the custom rise.css, and seems less buggy than jupyter nbconvert.
+(the rightmost histogram-like rectangle button)
+
+> To use a reveal.js theme :
+  jupyter nbconvert --to slides mooc_ecmwf_bocquet_brajard_intro.ipynb --post serve --SlidesExporter.reveal_theme=serif
+  where serif is the name of the theme that I have chosen.
+  list of reveal.js themes to pick from:
+  https://github.com/hakimel/reveal.js/tree/master/css/theme/source
+
+
+Output slideshow as pdf:
+------------------------
+
+> To ouput the slides as pdf, one can use again:
+  jupyter nbconvert mooc_ecmwf_bocquet_brajard_intro.ipynb --to slides --post serve
+  then append ?print=pdf to the url while replacing # -> http://localhost:8000/?print-pdf.
+  Then use the browser print dialog box.
+  It one needs to change the width of the slides, then append, e.g., ?width=960
+  -> http://localhost:8000/?width=960?print-pdf
+
+
+Example:
+jupyter nbconvert --to slides mooc_ecmwf_bocquet_brajard_intro.ipynb --post serve --SlidesExporter.reveal_theme=serif
+http://127.0.0.1:8000/mooc_ecmwf_bocquet_brajard_intro.slides.html#/
+http://127.0.0.1:8000/mooc_ecmwf_bocquet_brajard_intro.slides.html?width=1080
+http://127.0.0.1:8000/mooc_ecmwf_bocquet_brajard_intro.slides.html?width=1080?print-pdf
+Then use the browser print dialog box.
