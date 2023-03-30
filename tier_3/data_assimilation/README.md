@@ -9,7 +9,7 @@ See https://lms.ecmwf.int/ for the full ECMWF event.
 
 The goal of this lecture is to give a brief and very limited introduction to the connections between __machine learning/deep learning__ and __data assimilation__. Machine learning has found many new convincing applications over the past couple of years, besides computer vision or natural language. The geosciences are among them. Even within the geosciences, there is a considerable range of potential applications of machine learning and deep learning; some of them have been evidenced recently.
 
-Our specific goal today will be to not only learn the state of a physical system through its observation and a prior of this state but also to correct its dynamics.This contrasts with traditional data assimilation where the model is usually assumed to be known, or corrected via only a bunch of parameters in the control variables. 
+Our specific goal today will be to not only learn the state of a physical system through its observation and a prior of this state but also to correct its dynamics. This contrasts with traditional data assimilation where the model is usually assumed to be known, or corrected via only a bunch of parameters in the control variables. 
 
 __This module is organised into four parts:__
 
@@ -29,20 +29,19 @@ It also benefited from pieces of code previously developed by Marc Bocquet, Juli
 
 
 ## Before running the notebook
-Please, have a look at the introductory part.
+Please have a look at the introductory part before running the notebooks.
 
-#### For that, you to install the jupyter addon rise https://rise.readthedocs.io/ via pip install rise in your conda mooc environment.
 Run the introductory notebook:
 - Part Intro [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg) ](https://colab.research.google.com/github/ecmwf-projects/mooc-machine-learning-weather-climate/blob/main/tier_3/data_assimilation/mooc_ecmwf_bocquet_brajard_intro.ipynb)
 [![Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/ecmwf-projects/mooc-machine-learning-weather-climate/blob/main/tier_3/data_assimilation/mooc_ecmwf_bocquet_brajard_intro.ipynb)
 
-and then activate the rise slideshow mode.
+If running the notebooks on your own system, to view the introductory material in the form of a slideshow, you need to install the jupyter addon rise https://rise.readthedocs.io/ via pip install rise in your conda mooc environment, and then activate the rise slideshow mode.
 
 #### It can also be displayed as a pdf file:
 https://github.com/ecmwf-projects/mooc-machine-learning-weather-climate/blob/main/tier_3/data_assimilation/mooc_ecmwf_bocquet_brajard_intro.pdf
 
 ## Run the notebooks on google colab
-Just run each notebook starting with the part 1:
+Just run each notebook starting with part 1:
 - Part 1 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg) ](https://colab.research.google.com/github/ecmwf-projects/mooc-machine-learning-weather-climate/blob/main/tier_3/data_assimilation/mooc_ecmwf_bocquet_brajard_part1.ipynb)
 [![Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/ecmwf-projects/mooc-machine-learning-weather-climate/blob/main/tier_3/data_assimilation/mooc_ecmwf_bocquet_brajard_part1.ipynb)
@@ -56,9 +55,9 @@ Just run each notebook starting with the part 1:
 [![Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/ecmwf-projects/mooc-machine-learning-weather-climate/blob/main/tier_3/data_assimilation/mooc_ecmwf_bocquet_brajard_part3.ipynb)
 
 
-## Run the notebooks on you machine
-1. Create the conda enviromment: ```conda env create -f environment.yml```
-2. Activagte the enviromnment: ```conda activate mooc```
+## Run the notebooks on your machine
+1. Create the conda environment: ```conda env create -f environment.yml```
+2. Activate the environment: ```conda activate mooc```
 3. Run jupyter lab: ```jupyter lab```
 4. Run the notebooks from the first (part 1) to the last (part 3)
 
