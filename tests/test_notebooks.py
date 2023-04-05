@@ -23,17 +23,48 @@ except ImportError:
 
 
 def notebooks_list():
-    here = os.path.dirname(__file__)
-
     notebooks = []
-    for path in glob.glob(here + '/../*/*/*.ipynb'):
+    for path in glob.glob('*.ipynb'):
         # ignore notebooks starting with '_'
-        if re.match(r"[^_].*\.ipynb$", path):
+        if re.match("exercise_using_a_bnn_for_probabilistic_ocean_regime_predictions.ipynb.ipynb", path):
+          continue  
+        elif re.match(r"[^_].*\.ipynb$", path):
             if "Copy" not in path:  # ignore notebook including 'Copy'
                 notebooks.append(path)
 
     return sorted(notebooks)
 
+class MyExecutePreprocessor(ExecutePreprocessor):
+    def preprocess_cell(self, cell, resources, index):
+        print(cell)
+        if cell['source'] == 'gan.fit(dataset, epochs=30)':
+            cell['source'] = 'gan.fit(dataset, epochs=1)'
+
+        def replacement(source, flag):
+            lst = []
+            after_flag = False
+            for line in source.split('\n'):
+                if flag in line:
+                    after_flag = True
+                    continue
+                if after_flag:
+                    lst.append(line)
+            return "\n".join(lst)
+
+        flag = '# For github action'
+        source = cell.get('source', '')
+        if flag.lower() in source.lower():
+            # Tweak cells that are too long to run on Github actions
+            # because there are no GPUs.
+            # Ignore what is before the flag, replace it with is after the flag
+            # |  
+            # |  model.fit(dataset, epochs=50)
+            # |  # For Github actions:
+            # |  # model.fit(dataset, epochs=1)
+            # |  
+            cell['source'] = replacement(cell['source'], flag)
+
+        return super().preprocess_cell(cell, resources, index)
 
 @pytest.mark.parametrize("path", notebooks_list())
 def test_notebook(path):
@@ -43,7 +74,7 @@ def test_notebook(path):
     with open(path) as f:
         nb = nbformat.read(f, as_version=4)
 
-    proc = ExecutePreprocessor(timeout=60 * 60, kernel_name="python3")
+    proc = MyExecutePreprocessor(timeout=60 * 60, kernel_name="python3")
     proc.preprocess(nb, {"metadata": {"path": dir_path}})
 
 

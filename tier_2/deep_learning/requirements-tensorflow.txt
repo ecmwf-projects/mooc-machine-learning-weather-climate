@@ -1,0 +1,5 @@
+climetlab-mltc-surface-observation-postprocessing>=0.3.0
+numpy 
+matplotlib 
+scikit-learn
+tensorflow
