@@ -1,0 +1,10 @@
+numpy
+pandas
+geopandas
+tslearn
+tqdm
+sklearn
+matplotlib
+openpyxl
+folium
+mapclassify

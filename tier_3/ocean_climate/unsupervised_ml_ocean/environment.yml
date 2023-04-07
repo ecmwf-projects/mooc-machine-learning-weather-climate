@@ -1,0 +1,11 @@
+name: example-envronment
+channels:
+ - conda-forge
+dependencies:
+ - conda
+ - numpy
+ - matplotlib
+ - cartopy
+ - scikit-learn
+ - seaborn
+ - scipy
