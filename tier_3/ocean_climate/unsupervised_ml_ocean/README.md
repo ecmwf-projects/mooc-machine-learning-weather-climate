@@ -4,6 +4,7 @@ Tutorial material for MLINT, an initiative at the NOAA Geophysical Fluid Dynamic
 The "notebook" used for the practical uses the python programming language. The different parts are organized into cells that can be executed using shift+enter
 The hope here is to provide both some basic rationales and code with which to start off any exploration, and a mix of real and synthetic toy data is used towards this.
 
+[Please click here to access the notebook](https://github.com/ecmwf-projects/mooc-machine-learning-weather-climate/blob/main/tier_3/ocean_climate/unsupervised_ml_ocean/Machine_Learning_Techniques_in_Oceanography.ipynb)
 
 Maike Sonnewald and Redouane Lguensat. Revealing the impact of global heating on north atlantic circulation using transparent machine learning. JAMES, 2021,  https://doi.org/10.1029/2021MS002496
 
