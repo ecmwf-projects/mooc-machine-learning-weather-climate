@@ -3,6 +3,7 @@ from tensorflow.keras.layers import Layer
 import pickle
 from tensorflow.keras.models import load_model
 from .lorenz96 import l96
+import numpy as np
 
 class Periodic1DPadding(Layer):
     """Add a periodic padding to the output of a layer
