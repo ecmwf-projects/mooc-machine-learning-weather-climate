@@ -3,3 +3,8 @@ dependencies:
   - numpy
   - xarray
   - tensorflow
+  - netcdf4
+  - h5netcdf
+  - dask
+  - matplotlib
+  - jupyter
